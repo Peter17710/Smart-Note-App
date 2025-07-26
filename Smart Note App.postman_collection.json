@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "7a489eae-5a4c-45c1-8a7b-041e08c276ef",
+		"name": "Smart Note App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34582157"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "addUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWhtZWQiLCJ1c2VySWQiOiI2ODg0ZTVlOTZkYjliN2U2NTlkN2NiNTMiLCJpYXQiOjE3NTM1NDAwOTR9.z7j1riKdCHLy59N43B7NTs6uaTIEC8f-LGVKtPAqCTE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ahmed\",\r\n    \"email\": \"Ahmed991@gmail.com\",\r\n    \"password\": \"Ahmed123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/addUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"addUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload-profile-pic",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGV0ZXIiLCJ1c2VySWQiOiI2ODgzZjIzOGVmY2EzMDc1YTVmMDIzMWEiLCJpYXQiOjE3NTM1MzkwMTB9.pOHV6Z8-18mdJrRWJ8kSwtxn4BxWNXiVrYCCDepSELE",
+								"type": "text"
+							},
+							{
+								"key": "images",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePic",
+									"type": "file",
+									"src": "/D:/PIC/Wallpapers/20457346.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/upload-profile-pic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"upload-profile-pic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWhtZWQiLCJ1c2VySWQiOiI2ODg0ZTY3ZTZjZDA2NWVlZDgxOGMzZjAiLCJpYXQiOjE3NTM1NDAyMjl9.MWlrYmIAeJHFhqb_kRSxdfO1iJiIa6We16-KykeXNjo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/deleteUser/6884e67e6cd065eed818c3f0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"deleteUser",
+								"6884e67e6cd065eed818c3f0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"Ahmed99@gmail.com\",\r\n    \"password\": \"Ahmed123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGV0ZXIiLCJ1c2VySWQiOiI2ODgzOWU2NjMwZTYxMTE5NWM5MWUyMTciLCJyb2xlIjoidXNlciIsImlhdCI6MTc1MzQ2MTg1MX0.bgA06kjJUZ5s2kuMjHEL3EtyUSUe9lo4DrLnEO_-X_k",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"logout"
+							],
+							"query": [
+								{
+									"key": "authorization",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGV0ZXIiLCJ1c2VySWQiOiI2ODgzOWU2NjMwZTYxMTE5NWM5MWUyMTciLCJyb2xlIjoidXNlciIsImlhdCI6MTc1MzQ2MDIzM30.8qYJrabXoEnZ7m-5R2eZ1oXSx6uIq9kVAWENu5KrQuo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ahmed\",\r\n    \"email\": \"Ahmed99@gmail.com\",\r\n    \"password\": \"Ahmed123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forget-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"peter17710@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/forget-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"forget-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"peter17710@gmail.com\",\r\n  \"otp\": \"699909\",\r\n  \"newPassword\": \"Peter1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/reset-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "graphQl",
+			"item": [
+				{
+					"name": "addGraphQl",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGV0ZXIiLCJ1c2VySWQiOiI2ODgzZjIzOGVmY2EzMDc1YTVmMDIzMWEiLCJpYXQiOjE3NTM0Nzc3MDB9.cethJ5J7tOkVj_FwSDmC3RPYzyppQPaWcsAesjoCWDo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateNote($title: String!, $content: String, $userId: ID!) {\r\n  createNote(title: $title, content: $content, userId: $userId) {\r\n    _id\r\n    title\r\n    content\r\n  }\r\n}",
+								"variables": "{\r\n  \"title\": \"Note5\",\r\n  \"content\": \"Meeting moved to 9 PM. Prepare the slides and send updates before noon\",\r\n  \"userId\": \"6883f238efca3075a5f0231a\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getGraphQl",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGV0ZXIiLCJ1c2VySWQiOiI2ODgzZjIzOGVmY2EzMDc1YTVmMDIzMWEiLCJpYXQiOjE3NTM0Nzc3MDB9.cethJ5J7tOkVj_FwSDmC3RPYzyppQPaWcsAesjoCWDo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n  notes {\r\n    _id\r\n    title\r\n    content\r\n    createdAt\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql?query=query%20%7B%20notes%20%7B%20_id%20title%20content%20%7D%20%7D",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "query%20%7B%20notes%20%7B%20_id%20title%20content%20%7D%20%7D"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteGraphQl",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGV0ZXIiLCJ1c2VySWQiOiI2ODgzZjIzOGVmY2EzMDc1YTVmMDIzMWEiLCJpYXQiOjE3NTM1MTk1NjF9.C-Ckr1STCtI0oje4ahxDXJlG7V2YJjAqTszIyPzOW6A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DeleteNote($noteId: ID!, $userId: ID!) {\r\n  deleteNote(noteId: $noteId, userId: $userId)\r\n}",
+								"variables": "{\r\n\"noteId\":\"68849394e5722c4e5a6ae8cb\",\r\n\"userId\":\"6883f238efca3075a5f0231a\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateGraphQl",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGV0ZXIiLCJ1c2VySWQiOiI2ODgzZjIzOGVmY2EzMDc1YTVmMDIzMWEiLCJpYXQiOjE3NTM0Nzc3MDB9.cethJ5J7tOkVj_FwSDmC3RPYzyppQPaWcsAesjoCWDo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateNote($noteId: ID!, $title: String, $content: String) {\r\n  updateNote(noteId: $noteId, title: $title, content: $content) {\r\n    _id\r\n    title\r\n    content\r\n    createdAt\r\n  }\r\n}",
+								"variables": "{\r\n  \"noteId\": \"6883f3cc2750f916e5e8e93f\",\r\n  \"title\": \"Update1\",\r\n  \"content\": \"update1\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OpenAiSummarize",
+			"item": [
+				{
+					"name": "Summarize",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/6884ca10587e284755a901f8/summarize",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"6884ca10587e284755a901f8",
+								"summarize"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

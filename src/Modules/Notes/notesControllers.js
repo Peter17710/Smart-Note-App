@@ -1,12 +1,14 @@
 import { Note } from './../../../db/models/notes.model.js';
 import { User } from './../../../db/models/user.model.js';
+import { createNoteSchema , updateNoteSchema } from './notesValidation.js';
 import OpenAI from 'openai';
 import 'dotenv/config';
+import appError from '../../utils/appError.js';
 
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-}); 
+});
 
 import {
   GraphQLObjectType,
@@ -30,6 +32,7 @@ const UserType = new GraphQLObjectType({
   }),
 });
 
+
 const NoteType = new GraphQLObjectType({
   name: 'Note',
   fields: () => ({
@@ -45,6 +48,7 @@ const NoteType = new GraphQLObjectType({
     },
   }),
 });
+
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -82,6 +86,7 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
+
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
@@ -93,6 +98,12 @@ const Mutation = new GraphQLObjectType({
         userId: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve: async (parent, args) => {
+        const { error } = createNoteSchema.validate(args);
+
+        if (error) {
+          throw new appError(error.details[0].message, 400);
+        }
+
         const note = new Note({
           title: args.title,
           content: args.content,
@@ -110,6 +121,13 @@ const Mutation = new GraphQLObjectType({
         content: { type: GraphQLString },
       },
       resolve: async (parent, args) => {
+        const { error } = updateNoteSchema.validate(args);
+        if (error) {
+          throw new appError(error.details[0].message, 400);
+        }
+
+
+
         const updated = await Note.findByIdAndUpdate(
           args.noteId,
           {
@@ -145,9 +163,6 @@ export const schema = new GraphQLSchema({
   query: RootQuery,
   mutation: Mutation,
 });
-
-
-
 
 
 
